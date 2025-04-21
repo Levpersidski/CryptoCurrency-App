@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		433D79F12DB6CC9C00D0ED49 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433D79F02DB6CC9C00D0ED49 /* FavoritesManager.swift */; };
 		43EEBB082DB226650086E2A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB072DB226650086E2A4 /* AppDelegate.swift */; };
 		43EEBB0A2DB226650086E2A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB092DB226650086E2A4 /* SceneDelegate.swift */; };
 		43EEBB0C2DB226650086E2A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB0B2DB226650086E2A4 /* ViewController.swift */; };
@@ -14,12 +15,13 @@
 		43EEBB112DB226660086E2A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EEBB102DB226660086E2A4 /* Assets.xcassets */; };
 		43EEBB142DB226660086E2A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43EEBB122DB226660086E2A4 /* LaunchScreen.storyboard */; };
 		43EEBB1C2DB226B40086E2A4 /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB1B2DB226B40086E2A4 /* CryptoCurrency.swift */; };
-		43EEBB232DB29ECB0086E2A4 /* CryptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB222DB29ECB0086E2A4 /* CryptoTableViewCell.swift */; };
+		43EEBB232DB29ECB0086E2A4 /* CryptoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB222DB29ECB0086E2A4 /* CryptoViewCell.swift */; };
 		43EEBB252DB2B5CA0086E2A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB242DB2B5C90086E2A4 /* DetailsViewController.swift */; };
 		43EEBB272DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB262DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		433D79F02DB6CC9C00D0ED49 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		43EEBB042DB226650086E2A4 /* CryptoCurrency App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CryptoCurrency App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EEBB072DB226650086E2A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EEBB092DB226650086E2A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +31,7 @@
 		43EEBB132DB226660086E2A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43EEBB152DB226660086E2A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EEBB1B2DB226B40086E2A4 /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
-		43EEBB222DB29ECB0086E2A4 /* CryptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTableViewCell.swift; sourceTree = "<group>"; };
+		43EEBB222DB29ECB0086E2A4 /* CryptoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewCell.swift; sourceTree = "<group>"; };
 		43EEBB242DB2B5C90086E2A4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		43EEBB262DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCryptoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +71,8 @@
 				43EEBB1E2DB2272A0086E2A4 /* StoryBoards */,
 				43EEBB212DB2278F0086E2A4 /* resources */,
 				43EEBB1D2DB226E10086E2A4 /* System */,
-				43EEBB222DB29ECB0086E2A4 /* CryptoTableViewCell.swift */,
+				43EEBB282DB3F6D20086E2A4 /* View */,
+				433D79F02DB6CC9C00D0ED49 /* FavoritesManager.swift */,
 			);
 			path = "CryptoCurrency App";
 			sourceTree = "<group>";
@@ -117,6 +120,14 @@
 				43EEBB102DB226660086E2A4 /* Assets.xcassets */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		43EEBB282DB3F6D20086E2A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43EEBB222DB29ECB0086E2A4 /* CryptoViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,10 +204,11 @@
 				43EEBB0C2DB226650086E2A4 /* ViewController.swift in Sources */,
 				43EEBB082DB226650086E2A4 /* AppDelegate.swift in Sources */,
 				43EEBB0A2DB226650086E2A4 /* SceneDelegate.swift in Sources */,
-				43EEBB232DB29ECB0086E2A4 /* CryptoTableViewCell.swift in Sources */,
+				43EEBB232DB29ECB0086E2A4 /* CryptoViewCell.swift in Sources */,
 				43EEBB1C2DB226B40086E2A4 /* CryptoCurrency.swift in Sources */,
 				43EEBB272DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift in Sources */,
 				43EEBB252DB2B5CA0086E2A4 /* DetailsViewController.swift in Sources */,
+				433D79F12DB6CC9C00D0ED49 /* FavoritesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
