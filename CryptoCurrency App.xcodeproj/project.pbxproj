@@ -18,6 +18,7 @@
 		43EEBB232DB29ECB0086E2A4 /* CryptoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB222DB29ECB0086E2A4 /* CryptoViewCell.swift */; };
 		43EEBB252DB2B5CA0086E2A4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB242DB2B5C90086E2A4 /* DetailsViewController.swift */; };
 		43EEBB272DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EEBB262DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift */; };
+		43F2B2862DB8E1FA004411AC /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F2B2852DB8E1FA004411AC /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		43EEBB222DB29ECB0086E2A4 /* CryptoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewCell.swift; sourceTree = "<group>"; };
 		43EEBB242DB2B5C90086E2A4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		43EEBB262DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCryptoViewController.swift; sourceTree = "<group>"; };
+		43F2B2852DB8E1FA004411AC /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +71,11 @@
 				43EEBB1F2DB2274A0086E2A4 /* Models */,
 				43EEBB202DB227560086E2A4 /* ViewControllers */,
 				43EEBB1E2DB2272A0086E2A4 /* StoryBoards */,
+				43EEBB282DB3F6D20086E2A4 /* View */,
 				43EEBB212DB2278F0086E2A4 /* resources */,
 				43EEBB1D2DB226E10086E2A4 /* System */,
-				43EEBB282DB3F6D20086E2A4 /* View */,
 				433D79F02DB6CC9C00D0ED49 /* FavoritesManager.swift */,
+				43F2B2852DB8E1FA004411AC /* UIImageView+Extensions.swift */,
 			);
 			path = "CryptoCurrency App";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				43EEBB0C2DB226650086E2A4 /* ViewController.swift in Sources */,
 				43EEBB082DB226650086E2A4 /* AppDelegate.swift in Sources */,
 				43EEBB0A2DB226650086E2A4 /* SceneDelegate.swift in Sources */,
+				43F2B2862DB8E1FA004411AC /* UIImageView+Extensions.swift in Sources */,
 				43EEBB232DB29ECB0086E2A4 /* CryptoViewCell.swift in Sources */,
 				43EEBB1C2DB226B40086E2A4 /* CryptoCurrency.swift in Sources */,
 				43EEBB272DB2B6CB0086E2A4 /* FavoritesCryptoViewController.swift in Sources */,

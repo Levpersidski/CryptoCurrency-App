@@ -10,14 +10,23 @@ import UIKit
 class FavoritesCryptoViewController: UITableViewController {
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.reloadData()
+        tableView.rowHeight = 60
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? DetailsViewController,
+           let selectedCrypto = sender as? CryptoCurrency {
+            detailsVC.crypto = selectedCrypto
+            detailsVC.dateFormatter = DateFormatter.cryptoDateFormatter
+        }
+    }
+    
+    // MARK: - TableView DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FavoriteManager.shared.favorites.count
-
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,15 +39,7 @@ class FavoritesCryptoViewController: UITableViewController {
            return cell
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailsVC = segue.destination as? DetailsViewController,
-           let selectedCrypto = sender as? CryptoCurrency {
-            detailsVC.crypto = selectedCrypto
-            detailsVC.dateFormatter = DateFormatter.cryptoDateFormatter
-        }
-    }
-    
+    // MARK: - TableView Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let crypto = FavoriteManager.shared.favorites[indexPath.row]

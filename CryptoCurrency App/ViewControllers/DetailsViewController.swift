@@ -29,82 +29,57 @@ class DetailsViewController: UIViewController {
     
     var crypto: CryptoCurrency?
     
-   
+    
     var dateFormatter: DateFormatter?
     
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          setupUI()
-          loadData()
-          loadImage()
-          
-      }
-      
-      private func setupUI() {
-          // Настройка внешнего вида изображения
-          cryptoImage.layer.cornerRadius = 12
-          cryptoImage.clipsToBounds = true
-          cryptoImage.contentMode = .scaleAspectFit
-      }
-      
-      private func loadData() {
-          guard let crypto = crypto else { return }
-          
-          // Основная информация
-          cryptoNameLabel.text = crypto.name
-          marketCapRankLabel.text = "Ранг: \(crypto.marketCapRank)"
-          
-          // Форматирование чисел
-          let numberFormatter = NumberFormatter()
-          numberFormatter.numberStyle = .decimal
-          numberFormatter.maximumFractionDigits = 2
-          
-          // Цены
-          currentPriceLabel.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.currentPrice)) ?? "0")"
-          aTHPriceLabel.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.aTHPrice)) ?? "0")"
-          aTLPriceLabel.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.aTLPrice)) ?? "0")"
-          
-          // Рыночная капитализация
-          marketCapLabel.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.marketCap)) ?? "0")"
-          
-          // Проценты
-          configurePercentLabel(value: crypto.percentFromATL, label: percentFromATLLabel)
-          configurePercentLabel(value: crypto.athChangePercentage, label: PercentFromATHLabel)
-          // 24h диапазон
-          high24Label.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.high24H)) ?? "0")"
-          low24HLabel.text = "$\(numberFormatter.string(from: NSNumber(value: crypto.low24H)) ?? "0")"
-          
-          // Даты
-          aTHDateLabel.text = formatted(date: crypto.aTHDate)
-          aTLDateLabel.text = formatted(date: crypto.aTLDate)
-      }
-      
-      private func loadImage() {
-          guard let crypto = crypto else { return }
-          
-          cryptoImage.image = UIImage(systemName: "photo") // Плейсхолдер
-          
-          if let url = URL(string: crypto.image) {
-              URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-                  if let data = data, let image = UIImage(data: data) {
-                      DispatchQueue.main.async {
-                          self?.cryptoImage.image = image
-                      }
-                  }
-              }.resume()
-          }
-      }
     
-    private func configurePercentLabel(value: Double, label: UILabel) {
-        let arrow = value >= 0 ? "📈" : "📉"
-        label.text = String(format: "%.2f%% %@", value, arrow)
-        label.textColor = value >= 0 ? .systemGreen : .systemRed
-    }
-    
-    private func formatted(date: Date?) -> String {
-        guard let date = date, let formatter = dateFormatter else {
-            return "N/A"
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            loadData()
         }
-        return formatter.string(from: date)
+
+
+        // MARK: - Load Data
+        private func loadData() {
+            guard let crypto = crypto else { return }
+
+            cryptoNameLabel.text = crypto.name
+            marketCapRankLabel.text = "Ранг: \(crypto.marketCapRank)"
+
+            currentPriceLabel.text = format(crypto.currentPrice)
+            aTHPriceLabel.text = format(crypto.aTHPrice)
+            aTLPriceLabel.text = format(crypto.aTLPrice)
+            marketCapLabel.text = format(crypto.marketCap)
+            high24Label.text = format(crypto.high24H)
+            low24HLabel.text = format(crypto.low24H)
+
+            aTHDateLabel.text = formatted(date: crypto.aTHDate)
+            aTLDateLabel.text = formatted(date: crypto.aTLDate)
+
+            configurePercentLabel(value: crypto.percentFromATL, label: percentFromATLLabel)
+            configurePercentLabel(value: crypto.athChangePercentage, label: PercentFromATHLabel)
+
+            cryptoImage.loadImage(from: crypto.image)
+        }
+
+        // MARK: - UI Formatting
+        private func format(_ value: Double) -> String {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.maximumFractionDigits = 2
+            return "$\(formatter.string(from: NSNumber(value: value)) ?? "0")"
+        }
+
+        private func configurePercentLabel(value: Double, label: UILabel) {
+            let arrow = value >= 0 ? "📈" : "📉"
+            label.text = String(format: "%.2f%% %@", value, arrow)
+            label.textColor = value >= 0 ? .systemGreen : .systemRed
+        }
+
+        private func formatted(date: Date?) -> String {
+            guard let date = date, let formatter = dateFormatter else {
+                return "N/A"
+            }
+            return formatter.string(from: date)
+        }
     }
-  }

@@ -21,10 +21,10 @@ final class FavoriteManager {
     func toggleFavorite(_ crypto: CryptoCurrency) -> Bool {
         if let index = favorites.firstIndex(where: { $0.name == crypto.name }) {
             favorites.remove(at: index)
-            return false // Удалено
+            return false
         } else {
             favorites.append(crypto)
-            return true // Добавлено
+            return true
         }
     }
 }
